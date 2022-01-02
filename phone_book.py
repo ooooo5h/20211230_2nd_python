@@ -139,9 +139,13 @@ def search_my_contact_list():
     if len(result) == 0:
         print('검색 결과가 없습니다.')
         sleep(1)
-    else:       
+    else:             
+        print('===== 검색 결과 =====')
         # 검색 결과를 확인하자
-        for row in result:
-            print(row)
-        sleep(1)
+        for idx, row in enumerate(result):
+            
+            line = f"{idx+1}. {row['name']} ({row['memo']})"
+            print(line)
+                      
+        contact_num = int(input('상세 보기 연락처 선택 : '))
         
