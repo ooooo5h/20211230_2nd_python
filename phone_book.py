@@ -41,4 +41,26 @@ def sign_up():
     sleep(2)
 
 
-# 
+# 로그인 함수
+def sign_in():
+    
+    login_email = input('이메일 : ')
+    login_passwd = input('비밀번호 : ')
+    
+    sql = f"SELECT * FROM users WHERE users.email = '{login_email}' AND users.password = '{login_passwd}'"
+    
+    cursor.execute(sql)
+    user_list = cursor.fetchall()
+ 
+    if len(user_list) > 0:
+        
+        print(f'로그인에 성공했습니다.')
+        sleep(2)
+        
+        return True
+    else:
+        
+        print('없는 정보입니다. 다시 확인해주세요.')
+        sleep(2)
+        
+        return False

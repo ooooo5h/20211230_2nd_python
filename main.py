@@ -1,11 +1,11 @@
-from phone_book import print_main_menu, sign_up
+from phone_book import print_main_menu, sign_up, sign_in
 
 while True:
     menu_num = print_main_menu()
     
     if menu_num == 1:       
         # 1번 : 로그인
-        pass
+        sign_in()
     
     elif menu_num == 2:        
         # 2번 : 회원가입
