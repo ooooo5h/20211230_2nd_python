@@ -99,3 +99,16 @@ def add_phone_num():
     
     print('연락처 등록이 완료되었습니다.')
     sleep(2)
+    
+# 로그인한 사용자가 등록한 모든 연락처 출력
+def show_all_contacts():
+    
+    sql = f"SELECT * FROM contacts WHERE contacts.user_id = {login_user_id}"
+    cursor.execute(sql)
+    contact_list = cursor.fetchall()
+    
+    for contact in contact_list:
+        result = f"{contact[2]}({contact[4]}) : {contact[3]}"
+        print(result)
+        
+    sleep(2)
