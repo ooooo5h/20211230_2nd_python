@@ -54,7 +54,10 @@ def sign_in():
  
     if len(user_list) > 0:
         
-        print(f'로그인에 성공했습니다.')
+        login_user = user_list[0]
+        user_nickname = login_user[3]
+        
+        print(f'{user_nickname}님 환영합니다!')
         sleep(2)
         
         return True
