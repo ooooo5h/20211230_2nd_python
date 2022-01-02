@@ -2,7 +2,7 @@ import pymysql
 from time import sleep
 
 from pymysql.cursors import DictCursor
-
+from .datas import Contact
 
 db_connect = pymysql.connect(
     host='finalproject.cbqjwimiu76h.ap-northeast-2.rds.amazonaws.com',
@@ -149,3 +149,5 @@ def search_my_contact_list():
                       
         contact_num = int(input('상세 보기 연락처 선택 : '))
         
+        # contact_num에 맞는 line을 가지고(dict), Contact 형태의 객체로 변환하자(클래스 활용)
+        contact = Contact()
