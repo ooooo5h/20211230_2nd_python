@@ -1,13 +1,17 @@
 import pymysql
 from time import sleep
 
+from pymysql.cursors import DictCursor
+
+
 db_connect = pymysql.connect(
     host='finalproject.cbqjwimiu76h.ap-northeast-2.rds.amazonaws.com',
     port=3306,
     user='admin',
     passwd='Vmfhwprxm!123',
     db='test_phone_book',
-    charset='utf8')
+    charset='utf8',
+    cursorclass= DictCursor)
 
 cursor = db_connect.cursor()
 
@@ -56,10 +60,10 @@ def sign_in():
     if len(user_list) > 0:
         
         login_user = user_list[0]
-        user_nickname = login_user[3]
+        user_nickname = login_user['nickname']
         
         global login_user_id
-        login_user_id = login_user[0]
+        login_user_id = login_user['id']
         
         print(f'{user_nickname}님 환영합니다!')
         sleep(2)
@@ -108,7 +112,11 @@ def show_all_contacts():
     contact_list = cursor.fetchall()
     
     for contact in contact_list:
-        result = f"{contact[2]}({contact[4]}) : {contact[3]}"
+        
+        name = contact['name']
+        phone_num = contact['phone_num']
+        memo = contact['memo']
+        result = f"{name}({memo}) : {phone_num}"
         print(result)
         
     sleep(2)
