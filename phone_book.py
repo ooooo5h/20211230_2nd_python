@@ -1,8 +1,7 @@
 import pymysql
 from time import sleep
-
 from pymysql.cursors import DictCursor
-from .datas import Contact
+from datas import Contact
 
 db_connect = pymysql.connect(
     host='finalproject.cbqjwimiu76h.ap-northeast-2.rds.amazonaws.com',
@@ -151,3 +150,12 @@ def search_my_contact_list():
         
         # contact_num에 맞는 line을 가지고(dict), Contact 형태의 객체로 변환하자(클래스 활용)
         contact = Contact()
+        
+        # 위치에 맞는 dict를 꺼내와서 contact객체의 내용물 변수들을 채우자
+        select_line = result[contact_num-1]
+        
+        # 이렇게 모든 걸 셋팅하기 너무 귀찮아! 클래스의 기능으로 추가해주자(메쏘드)
+        # contact.id = select_line['id']
+        contact.set_dat(select_line)
+        print(contact.name)
+        
