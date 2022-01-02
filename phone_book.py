@@ -1,4 +1,5 @@
 import pymysql
+from time import sleep
 
 db_connect = pymysql.connect(
     host='finalproject.cbqjwimiu76h.ap-northeast-2.rds.amazonaws.com',
@@ -37,4 +38,7 @@ def sign_up():
     db_connect.commit()
     
     print(f'{input_nickname}님 환영합니다. 회원가입이 완료되었습니다.')
-    
+    sleep(2)
+
+
+# 
