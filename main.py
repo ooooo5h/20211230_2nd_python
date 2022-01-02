@@ -1,4 +1,4 @@
-from phone_book import add_phone_num, print_main_menu, sign_up, sign_in, print_phone_book_menu, show_all_contacts
+from phone_book import add_phone_num, print_main_menu, search_my_contact_list, sign_up, sign_in, print_phone_book_menu, show_all_contacts
 from time import sleep
 
 while True:
@@ -19,6 +19,8 @@ while True:
                     add_phone_num()
                 elif num == 2:
                     show_all_contacts()
+                elif num == 3:
+                    search_my_contact_list()
         
     elif menu_num == 2:        
         # 2번 : 회원가입

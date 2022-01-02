@@ -82,6 +82,7 @@ def print_phone_book_menu():
     print('===== 메인 메뉴 =====')
     print('1. 전화번호 추가 등록')
     print('2. 전화번호 목록 조회')
+    print('3. 내 전화번호부 검색')
     print('0. 로그아웃')
     print('====================')
     num = int(input('메뉴 선택 : '))
@@ -120,3 +121,16 @@ def show_all_contacts():
         print(result)
         
     sleep(2)
+    
+    
+# 전화번호부에서 이름 기준으로 검색
+def search_my_contact_list():
+    
+    input_keyword = input('검색할 이름의 일부를 입력하세요 : ')
+    
+    sql = f"""
+    SELECT * FROM contacts 
+    WHERE contacts.user_id = {login_user_id} AND 
+    contacts.name LIKE '%{input_keyword}%'"""
+    
+    
