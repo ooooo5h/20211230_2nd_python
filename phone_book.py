@@ -161,3 +161,17 @@ def search_my_contact_list():
         # 연락처의 상세 정보를 표시하자(역시 메쏘드로)
         detail_num = contact.show_detail_info()
         
+        if detail_num == 1:
+            update_contact()
+            
+        elif detail_num == 2:
+            delete_contact()
+        
+           
+    # 연락처 수정
+    def update_contact():
+        pass
+     
+    # 연락처 삭제
+    def delete_contact():
+        pass
