@@ -133,4 +133,15 @@ def search_my_contact_list():
     WHERE contacts.user_id = {login_user_id} AND 
     contacts.name LIKE '%{input_keyword}%'"""
     
+    cursor.execute(sql)
+    result = cursor.fetchall()
     
+    if len(result) == 0:
+        print('검색 결과가 없습니다.')
+        sleep(1)
+    else:       
+        # 검색 결과를 확인하자
+        for row in result:
+            print(row)
+        sleep(1)
+        
