@@ -166,7 +166,7 @@ def search_my_contact_list():
             update_contact(contact, new_name)
             
         elif detail_num == 2:
-            delete_contact()
+            delete_contact(contact)
         
         
 # 연락처 수정
@@ -181,5 +181,12 @@ def update_contact(contact, value):
     sleep(2)
     
 # 연락처 삭제
-def delete_contact():
-    pass
+def delete_contact(contact):
+    
+    sql = f"DELETE FROM contacts WHERE contacts.id = {contact.id}"
+    
+    cursor.execute(sql)
+    db_connect.commit()
+    
+    print('연락처 삭제가 완료되었습니다.')
+    sleep(2)
