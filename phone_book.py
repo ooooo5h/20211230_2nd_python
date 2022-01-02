@@ -78,3 +78,20 @@ def print_phone_book_menu():
     print('====================')
     num = int(input('메뉴 선택 : '))
     return num
+
+# 전화번호 추가 등록
+def add_phone_num():
+    
+    input_name = input('이름 : ')
+    input_phone = input('연락처 : ')
+    input_memo = input('특이사항 : ')
+    
+    sql = f"""
+    INSERT INTO contacts (contacts.name, contacts.phone_num, contacts.memo, contacts.user_id) 
+    VALUES ('{input_name}','{input_phone}','{input_memo}', 20)"""
+    
+    cursor.execute(sql)
+    db_connect.commit()
+    
+    print('연락처 등록이 완료되었습니다.')
+    sleep(2)

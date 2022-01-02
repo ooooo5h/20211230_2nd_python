@@ -1,4 +1,4 @@
-from phone_book import print_main_menu, sign_up, sign_in, print_phone_book_menu
+from phone_book import add_phone_num, print_main_menu, sign_up, sign_in, print_phone_book_menu
 from time import sleep
 
 while True:
@@ -15,6 +15,8 @@ while True:
                     print('로그아웃 후 메인으로 돌아갑니다.')
                     sleep(2)
                     break
+                elif num == 1:
+                    add_phone_num()
         
     elif menu_num == 2:        
         # 2번 : 회원가입
