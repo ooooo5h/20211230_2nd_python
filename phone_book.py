@@ -157,5 +157,7 @@ def search_my_contact_list():
         # 이렇게 모든 걸 셋팅하기 너무 귀찮아! 클래스의 기능으로 추가해주자(메쏘드)
         # contact.id = select_line['id']
         contact.set_dat(select_line)
-        print(contact.name)
+        
+        # 연락처의 상세 정보를 표시하자(역시 메쏘드로)
+        detail_num = contact.show_detail_info()
         
