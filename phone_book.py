@@ -162,16 +162,24 @@ def search_my_contact_list():
         detail_num = contact.show_detail_info()
         
         if detail_num == 1:
-            update_contact()
+            new_name = input('변경할 이름 : ')
+            update_contact(contact, new_name)
             
         elif detail_num == 2:
             delete_contact()
         
-           
-    # 연락처 수정
-    def update_contact():
-        pass
-     
-    # 연락처 삭제
-    def delete_contact():
-        pass
+        
+# 연락처 수정
+def update_contact(contact, value):
+            
+    sql = f"UPDATE contacts SET contacts.name = '{value}' WHERE contacts.id = {contact.id} "
+    
+    cursor.execute(sql)
+    db_connect.commit()
+    
+    print('연락처 수정이 완료되었습니다.')
+    sleep(2)
+    
+# 연락처 삭제
+def delete_contact():
+    pass
