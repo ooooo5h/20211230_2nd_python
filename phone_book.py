@@ -11,6 +11,7 @@ db_connect = pymysql.connect(
 
 cursor = db_connect.cursor()
 
+login_user_id = 0
 
 # 메인화면 보여주는 함수
 def print_main_menu():
@@ -57,6 +58,9 @@ def sign_in():
         login_user = user_list[0]
         user_nickname = login_user[3]
         
+        global login_user_id
+        login_user_id = login_user[0]
+        
         print(f'{user_nickname}님 환영합니다!')
         sleep(2)
         
@@ -88,7 +92,7 @@ def add_phone_num():
     
     sql = f"""
     INSERT INTO contacts (contacts.name, contacts.phone_num, contacts.memo, contacts.user_id) 
-    VALUES ('{input_name}','{input_phone}','{input_memo}', 20)"""
+    VALUES ('{input_name}','{input_phone}','{input_memo}', {login_user_id})"""
     
     cursor.execute(sql)
     db_connect.commit()
